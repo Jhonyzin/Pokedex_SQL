@@ -104,7 +104,7 @@ CREATE TABLE captura (
   data_captura  DATE         NOT NULL,
   nivel         TINYINT UNSIGNED NOT NULL DEFAULT 1,
   apelido       VARCHAR(60),
-  pokebola_usada VARCHAR(30) NOT NULL DEFAULT 'Pokébola',
+  pokebola_usada VARCHAR(30) NOT NULL DEFAULT 'PokEbola',
   CONSTRAINT fk_captura_treinador FOREIGN KEY (id_treinador)
     REFERENCES treinador(id_treinador)
     ON UPDATE CASCADE ON DELETE CASCADE,
@@ -157,7 +157,7 @@ CREATE TABLE evolucao (
   id_pokemon_base INT NOT NULL,
   id_pokemon_evo  INT NOT NULL,
   nivel_minimo    TINYINT UNSIGNED,
-  metodo          VARCHAR(60) NOT NULL DEFAULT 'Nível',
+  metodo          VARCHAR(60) NOT NULL DEFAULT 'Nivel',
   CONSTRAINT fk_evo_base FOREIGN KEY (id_pokemon_base)
     REFERENCES pokemon(id_pokemon)
     ON UPDATE CASCADE ON DELETE CASCADE,

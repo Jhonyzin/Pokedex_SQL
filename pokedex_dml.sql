@@ -69,26 +69,26 @@ INSERT INTO pokemon (numero_dex, nome, id_regiao, altura_m, peso_kg, taxa_captur
 -- 4. POKÉMON_TIPO (relação N:N)
 -- ============================================================
 INSERT INTO pokemon_tipo (id_pokemon, id_tipo, slot) VALUES
-  (1,  5,  1),  -- Bulbasaur   → Grama
-  (1,  8,  2),  -- Bulbasaur   → Veneno
-  (2,  2,  1),  -- Charmander  → Fogo
-  (3,  3,  1),  -- Squirtle    → Água
-  (4,  4,  1),  -- Pikachu     → Elétrico
-  (5,  1,  1),  -- Jigglypuff  → Normal
-  (5, 18,  2),  -- Jigglypuff  → Fada
-  (6,  1,  1),  -- Meowth      → Normal
-  (7, 14,  1),  -- Gengar      → Fantasma
-  (7,  8,  2),  -- Gengar      → Veneno
-  (8,  1,  1),  -- Snorlax     → Normal
-  (9, 11,  1),  -- Mewtwo      → Psíquico
-  (10, 5,  1),  -- Chikorita   → Grama
-  (11, 2,  1),  -- Cyndaquil   → Fogo
-  (12, 3,  1),  -- Totodile    → Água
-  (13,11,  1),  -- Lugia       → Psíquico
-  (13,10,  2),  -- Lugia       → Voador
-  (14, 2,  1),  -- Torchic     → Fogo
-  (15, 3,  1),  -- Mudkip      → Água
-  (16,15,  1);  -- Rayquaza    → Dragão
+  (1, 5, 1),
+  (1, 8, 2),
+  (2, 2, 1),
+  (3, 3, 1),
+  (4, 4, 1),
+  (5, 1, 1),
+  (5, 18, 2),
+  (6, 1, 1),
+  (7, 14, 1),
+  (7, 8, 2),
+  (8, 1, 1),
+  (9, 11, 1),
+  (10, 5, 1),
+  (11, 2, 1),
+  (12, 3, 1),
+  (13, 11, 1),
+  (13, 10, 2),
+  (14, 2, 1),
+  (15, 3, 1),
+  (16, 15, 1);
 
 
 -- ============================================================
@@ -115,31 +115,32 @@ INSERT INTO treinador (nome, cpf, email, data_nasc, cidade_origem, status) VALUE
 -- ============================================================
 -- 6. CAPTURAS (relação N:N — treinador ↔ pokemon)
 -- ============================================================
-INSERT INTO captura (id_treinador, id_pokemon, data_captura, nivel, apelido, pokebola_usada) VALUES
-  (1,  1,  '2010-04-01',  5, NULL,        'Pokébola'),
-  (1,  4,  '2010-04-01',  5, 'Charizinho', 'Pokébola'),
-  (1,  4,  '2010-04-01',  5, NULL,        'Pokébola'),  -- linha duplicada será ignorada pela UNIQUE; ajustamos abaixo
-  (1,  7,  '2010-04-02',  5, 'Squirtle',   'Pokébola'),
-  (1,  8,  '2011-01-10',  5, 'Pikachu',    'Pokébola'),
-  (2,  3,  '2010-05-10', 12, 'Starmie Jr.','Pokébola'),
-  (2, 12,  '2012-06-20', 10, NULL,        'Pokébola'),
-  (3,  3,  '2009-09-01', 15, NULL,        'Pokébola'),
-  (4,  1,  '2010-04-01',  5, NULL,        'Pokébola'),
-  (4,  9,  '2010-11-25', 70, NULL,        'Masterball'),
-  (5, 10,  '2013-03-15',  8, 'Chicori',   'Pokébola'),
-  (5, 11,  '2013-03-15',  8, NULL,        'Pokébola'),
-  (6, 14,  '2012-07-07',  5, 'Torcinho',  'Pokébola'),
-  (6, 15,  '2012-07-07',  5, NULL,        'Pokébola'),
-  (7,  5,  '2014-10-01', 20, 'Cleffa',    'Pokébola'),
-  (8,  4,  '2014-10-05', 10, NULL,        'Pokébola'),
-  (9, 16,  '2011-08-20', 60, NULL,        'Ultraball'),
-  (10, 6,  '2011-05-05', 25, 'Meowth',    'Pokébola'),
-  (11, 7,  '2019-04-01', 10, NULL,        'Pokébola'),
-  (11, 9,  '2019-07-10', 70, NULL,        'Masterball'),
-  (12, 3,  '2017-11-30', 18, NULL,        'Pokébola'),
-  (13, 1,  '2017-11-30',  7, NULL,        'Pokébola'),
-  (14, 7,  '2018-01-20', 22, 'Squirtle',  'Pokébola'),
-  (15, 2,  '2016-09-14', 15, NULL,        'Pokébola');
+INSERT INTO captura
+(id_treinador, id_pokemon, data_captura, nivel, apelido, pokebola_usada)
+VALUES
+(1,  1,  '2010-04-01',  5, NULL,         'PokEbola'),
+(1,  4,  '2010-04-01',  5, 'Charizinho', 'PokEbola'),
+(1,  7,  '2010-04-02',  5, 'Squirtle',   'PokEbola'),
+(1,  8,  '2011-01-10',  5, 'Pikachu',    'PokEbola'),
+(2,  3,  '2010-05-10', 12, 'Starmie Jr.', 'PokEbola'),
+(2, 12,  '2012-06-20', 10, NULL,         'PokEbola'),
+(3,  3,  '2009-09-01', 15, NULL,         'PokEbola'),
+(4,  1,  '2010-04-01',  5, NULL,         'PokEbola'),
+(4,  9,  '2010-11-25', 70, NULL,         'Masterball'),
+(5, 10,  '2013-03-15',  8, 'Chicori',    'PokEbola'),
+(5, 11,  '2013-03-15',  8, NULL,         'PokEbola'),
+(6, 14,  '2012-07-07',  5, 'Torcinho',   'PokEbola'),
+(6, 15,  '2012-07-07',  5, NULL,         'PokEbola'),
+(7,  5,  '2014-10-01', 20, 'Cleffa',     'PokEbola'),
+(8,  4,  '2014-10-05', 10, NULL,         'PokEbola'),
+(9, 16,  '2011-08-20', 60, NULL,         'Ultraball'),
+(10, 6,  '2011-05-05', 25, 'Meowth',     'PokEbola'),
+(11, 7,  '2019-04-01', 10, NULL,         'PokEbola'),
+(11, 9,  '2019-07-10', 70, NULL,         'Masterball'),
+(12, 3,  '2017-11-30', 18, NULL,         'PokEbola'),
+(13, 1,  '2017-11-30',  7, NULL,         'PokEbola'),
+(14, 7,  '2018-01-20', 22, 'Squirtle',   'PokEbola'),
+(15, 2,  '2016-09-14', 15, NULL,         'PokEbola');
 
 
 -- ============================================================
@@ -167,73 +168,73 @@ INSERT INTO habilidade (nome, descricao, oculta) VALUES
 -- 8. POKÉMON_HABILIDADE (relação N:N)
 -- ============================================================
 INSERT INTO pokemon_habilidade (id_pokemon, id_habilidade, slot) VALUES
-  (1,  3,  1),  -- Bulbasaur   → Supercresc.
-  (2,  2,  1),  -- Charmander  → Chamas
-  (3,  1,  1),  -- Squirtle    → Torrente
-  (4,  4,  1),  -- Pikachu     → Estático
-  (4,  5,  3),  -- Pikachu     → Raio (oculta)
-  (5,  8,  1),  -- Jigglypuff  → Natural Cure
-  (6,  6,  1),  -- Meowth      → Corpo Bruto
-  (7,  7,  1),  -- Gengar      → Levitação
-  (7, 11,  3),  -- Gengar      → Sombra Mágica (oculta)
-  (8,  6,  1),  -- Snorlax     → Corpo Bruto
-  (9, 10,  1),  -- Mewtwo      → Pressão
-  (9, 11,  3),  -- Mewtwo      → Sombra Mágica (oculta)
-  (10, 3,  1),  -- Chikorita   → Supercresc.
-  (11, 2,  1),  -- Cyndaquil   → Chamas
-  (12, 1,  1),  -- Totodile    → Torrente
-  (13,10,  1),  -- Lugia       → Pressão
-  (13,13,  3),  -- Lugia       → Multiscale (oculta)
-  (14, 2,  1),  -- Torchic     → Chamas
-  (14,14,  3),  -- Torchic     → Speed Boost (oculta)
-  (15, 1,  1),  -- Mudkip      → Torrente
-  (16,10,  1);  -- Rayquaza    → Pressão
+(1, 3, 1),
+(2, 2, 1),
+(3, 1, 1),
+(4, 4, 1),
+(4, 5, 3),
+(5, 8, 1),
+(6, 6, 1),
+(7, 7, 1),
+(7, 11, 3),
+(8, 6, 1),
+(9, 10, 1),
+(9, 11, 3),
+(10, 3, 1),
+(11, 2, 1),
+(12, 1, 1),
+(13, 10, 1),
+(13, 13, 3),
+(14, 2, 1),
+(14, 14, 3),
+(15, 1, 1),
+(16, 10, 1);
+
 
 
 -- ============================================================
 -- 9. EVOLUÇÕES (15 registros)
 -- ============================================================
 INSERT INTO evolucao (id_pokemon_base, id_pokemon_evo, nivel_minimo, metodo) VALUES
-  (1,   1,  16, 'Nível'),   -- Bulbasaur  → Ivysaur (referência conceitual; Ivysaur não está na tabela, então usamos os que temos)
-  (2,   2,  16, 'Nível'),   -- Charmander → Charmeleon (auto-ref. demonstrativa)
-  -- Para as cadeias completas dos Pokémon cadastrados:
-  (10, 10,  32, 'Nível'),   -- Chikorita  → Bayleef (demo)
-  (11, 11,  14, 'Nível'),   -- Cyndaquil  → Quilava
-  (12, 12,  18, 'Nível'),   -- Totodile   → Croconaw
-  (14, 14,  16, 'Nível'),   -- Torchic    → Combusken
-  (15, 15,  16, 'Nível');   -- Mudkip     → Marshtomp
+(1, 1, 16, 'Nivel'),
+(2, 2, 16, 'Nivel'),
+(10, 10, 32, 'Nivel'),
+(11, 11, 14, 'Nivel'),
+(12, 12, 18, 'Nivel'),
+(14, 14, 16, 'Nivel'),
+(15, 15, 16, 'Nivel');
 
 -- Nota: auto-referências na mesma linha são apenas demonstrativas de estrutura.
 -- Em um banco real, id_pokemon_evo aponta para o Pokémon evoluído real.
 -- Adicionamos evoluções entre Pokémon diferentes que existem na tabela:
 INSERT INTO evolucao (id_pokemon_base, id_pokemon_evo, nivel_minimo, metodo) VALUES
-  (1,  10, NULL, 'Pedra Folha'),   -- Bulbasaur  → Chikorita (ilustrativo de método item)
-  (4,   8, NULL, 'Amizade'),       -- Pikachu    → Snorlax   (ilustrativo de método amizade)
-  (2,  14,  36, 'Nível'),          -- Charmander → Torchic   (ilustrativo)
-  (3,  15,  36, 'Nível'),          -- Squirtle   → Mudkip    (ilustrativo)
-  (5,   5,   1, 'Pedra Lua'),      -- Jigglypuff (auto — demonstra pedra)
-  (6,   6,   1, 'Pedra Solar'),    -- Meowth     (auto — demonstra pedra)
-  (7,   7,   1, 'Troca'),          -- Gengar     (auto — demonstra troca)
-  (12, 16, NULL, 'Pedra Dragão');  -- Totodile   → Rayquaza  (ilustrativo)
+(1, 10, NULL, 'Pedra Folha'),
+(4, 8, NULL, 'Amizade'),
+(2, 14, 36, 'Nivel'),
+(3, 15, 36, 'Nivel'),
+(5, 5, 1, 'Pedra Lua'),
+(6, 6, 1, 'Pedra Solar'),
+(7, 7, 1, 'Troca'),
+(12, 16, NULL, 'Pedra Dragao');
 
 
 -- ============================================================
 -- 10. ESTATÍSTICAS BASE (16 registros — 1 por Pokémon)
 -- ============================================================
 INSERT INTO estatistica_base (id_pokemon, hp, ataque, defesa, atq_especial, def_especial, velocidade) VALUES
-  (1,  45,  49,  49,  65,  65,  45),  -- Bulbasaur
-  (2,  39,  52,  43,  60,  50,  65),  -- Charmander
-  (3,  44,  48,  65,  50,  64,  43),  -- Squirtle
-  (4,  35,  55,  40,  50,  50,  90),  -- Pikachu
-  (5,  115, 45,  20,  45,  25,  20),  -- Jigglypuff
-  (6,  40,  45,  35,  40,  40,  90),  -- Meowth
-  (7,  60, 115,  75, 100,  75, 110),  -- Gengar
-  (8, 160, 110,  65,  65,  65,  30),  -- Snorlax
-  (9, 106, 110,  90, 154,  90, 130),  -- Mewtwo
-  (10, 45,  49,  65,  49,  65,  45),  -- Chikorita
-  (11, 39,  52,  43,  60,  50,  65),  -- Cyndaquil
-  (12, 50,  65,  64,  44,  48,  43),  -- Totodile
-  (13,106,  90, 130,  90, 154,  90),  -- Lugia
-  (14, 45,  60,  40,  70,  50,  45),  -- Torchic
-  (15, 50,  70,  50,  50,  50,  40),  -- Mudkip
-  (16,105, 150,  90, 150,  90,  95);  -- Rayquaza
+(1, 45, 49, 49, 65, 65, 45),
+(2, 39, 52, 43, 60, 50, 65),
+(3, 44, 48, 65, 50, 64, 43),
+(4, 35, 55, 40, 50, 50, 90),
+(5, 115, 45, 20, 45, 25, 20),
+(6, 40, 45, 35, 40, 40, 90),
+(7, 60, 115, 75, 100, 75, 110),
+(8, 160, 110, 65, 65, 65, 30),
+(9, 106, 110, 90, 154, 90, 130),
+(10, 45, 49, 65, 49, 65, 45),
+(11, 39, 52, 43, 60, 50, 65),
+(12, 50, 65, 64, 44, 48, 43),
+(13, 106, 90, 130, 90, 154, 90),
+(14, 45, 60, 40, 70, 50, 45),
+(15, 50, 70, 50, 50, 50, 40),
+(16, 105, 150, 90, 150, 90, 95);
